@@ -1,0 +1,61 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+<link href="~/Content/datatables.css" rel="stylesheet" />
+<link href="~/Content/cssPropio.css" rel="stylesheet" />
+<h2>Index</h2>
+
+<button type="button" onclick="abrirModal(0)" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Agregar</button>
+
+<div id="tabla">
+
+</div>
+<div id="myModal" class="modal" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Modal Header</h4>
+            </div>
+            <div class="modal-body">
+
+                <table style="width:80%;margin:auto">
+                    <tr>
+                        <td>Id </td>
+                        <td><input class="borrar" type="text" id="txtId" readonly /></td>
+                    </tr>
+                    <tr>
+                        <td>Ingrese nombre Periodo</td>
+                        <td><select  class="borrar obligatorio" id="cboPeriodo"></select></td>
+                    </tr>
+                    <tr>
+                        <td>Ingrese nombre grado</td>
+                        <td><select  class="borrar obligatorio" id="cboGrado"></select></td>
+                    </tr>
+                    <tr>
+                        <td>Ingrese nombre Curso</td>
+                        <td><select  class="borrar obligatorio" id="cboCurso"></select></td>
+                    </tr>
+
+                </table>
+
+
+
+            </div>
+            <div class="modal-footer">
+                <button onclick="Agregar()" type="button" class="btn btn-success">Aceptar</button>
+
+                <button id="btnCancelar" type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script src="~/scripts/jquery-1.10.2.min.js"></script>
+<script src="~/scripts/PeriodoGradoCurso.js"></script>
+<script src="~/scripts/datatables.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>

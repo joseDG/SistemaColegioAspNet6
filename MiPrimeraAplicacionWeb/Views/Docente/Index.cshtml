@@ -1,0 +1,122 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<link href="~/Content/jquery-ui.min.css" rel="stylesheet" />
+<link href="~/Content/cssPropio.css" rel="stylesheet" />
+
+<link href="~/Content/datatables.css" rel="stylesheet" />
+
+<h2>Index</h2>
+
+<label>Ingrese modalidad contrato</label>
+<select id="cboTipoModalidad">
+
+</select>
+<br />
+<button onclick="abrirModal(0)" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Agregar</button>
+<div id="tabla">
+
+</div>
+
+<div id="myModal" class="modal" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title"  id="lblTitulo"></h4>
+            </div>
+            <div class="modal-body">
+                <table style="width:80%;margin:auto">
+                  <tr>
+                      <td>Id Docente</td>
+                      <td><input class="borrar form-control" type="text" id="txtIdDocente" readonly/></td>
+                  </tr>
+
+                    <tr>
+                        <td>Ingrese Nombre</td>
+                        <td><input class="borrar obligatorio form-control"  type="text" id="txtnombre"  /></td>
+                    </tr>
+
+
+                    <tr>
+                        <td>Ingrese Apellido Paterno</td>
+                        <td><input class="borrar obligatorio form-control"  type="text" id="txtApPaterno" /></td>
+                    </tr>
+
+
+                    <tr>
+                        <td>Ingrese Apellido Materno</td>
+                        <td><input class="borrar obligatorio form-control"  type="text" id="txtApMaterno" /></td>
+                    </tr>
+
+                    <tr>
+                        <td>Ingrese Direccion</td>
+                        <td><input class="borrar obligatorio form-control"  type="text" id="txtdireccion" /></td>
+                    </tr>
+
+                    <tr>
+                        <td>Ingrese Telefono Fijo</td>
+                        <td><input class="borrar obligatorio form-control"  type="number" id="txttelefonoFijo" /></td>
+                    </tr>
+
+                    <tr>
+                        <td>Ingrese Telefono Celular</td>
+                        <td><input class="borrar obligatorio form-control"  type="number" id="txttelefonocelular" /></td>
+                    </tr>
+
+                    <tr>
+                        <td>Ingrese Email</td>
+                        <td><input class="borrar obligatorio form-control"  type="email" id="txtemail" /></td>
+                    </tr>
+
+                    <tr>
+                        <td>Ingrese Sexo</td>
+                        <td><select class="borrar obligatorio form-control"  id="cboSexoPopup"></select></td>
+                    </tr>
+
+
+                    <tr>
+                        <td>Ingrese Fecha Contrato</td>
+                        <td><input class="borrar obligatorio form-control"  type="text" id="dtFechaContrato" /></td>
+                    </tr>
+
+                    <tr>
+                        <td>Ingrese Modalidad Contrato</td>
+                        <td><select class="borrar obligatorio form-control"  id="cboModalidadContratoPopup"></select></td>
+                    </tr>
+
+
+                    <tr>
+                        <td>Ingrese Foto</td>
+                        <td><img id="imgFoto" width="150" height="100" style="border:1px solid" /></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><input type="file" value="..." id="btnFoto" /></td>
+                    </tr>
+                 
+
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button onclick="Agregar()" id="btnAceptar" type="button" class="btn btn-success" >Aceptar</button>
+
+                <button id="btnCancelar" type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+<script src="~/scripts/jquery-1.10.2.min.js"></script>
+<script src="~/scripts/jquery-ui.min.js"></script>
+<script src="~/scripts/Docente.js"></script>
+<script src="~/scripts/datatables.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>

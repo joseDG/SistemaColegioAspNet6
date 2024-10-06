@@ -1,0 +1,85 @@
+﻿@using MiPrimeraAplicacionWeb.Models;
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @{
+                    int nelementos = Variable.acciones.Count();
+                    for (int i = 0; i < nelementos; i++)
+                    {
+                        @Html.ActionLink(Variable.mensaje[i], Variable.acciones[i], Variable.controladores[i], new { area = "" }, new { @class = "navbar-brand" })
+                    }
+                }
+
+                
+
+
+                @*@Html.ActionLink("Curso", "Index", "Curso", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Periodo", "Index", "Periodo", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Seccion", "Index", "Seccion", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Alumno", "Index", "Alumno", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Docente", "Index", "Docente", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Grado y seccion", "Index", "GradoSeccion", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Curso a los grados", "Index", "PeriodoGradoCurso", new { area = "" }, new { @class = "navbar-brand" })
+
+
+                @Html.ActionLink(" curso a docente", "Index", "GradoSeccionAula", new { area = "" }, new { @class = "navbar-brand" })
+                 @Html.ActionLink("Matricular", "Index", "Matricula", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Rol", "Index", "RolPagina", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Usuario", "Index", "Usuario", new { area = "" }, new { @class = "navbar-brand" })*@
+                @Html.ActionLink("Cerrar", "Cerrar", "Login", new { area = "" }, new { @class = "navbar-brand" ,@id="btnCerrarSesison"})
+
+             </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+     
+    </div>
+
+    <script>
+
+        function voz(mensaje) {
+
+            var vozHablar = new SpeechSynthesisUtterance(mensaje);
+            window.speechSynthesis.speak(vozHablar);
+
+
+        }
+
+
+        var btnCerrarSesison = document.getElementById("btnCerrarSesison");
+
+        btnCerrarSesison.onclick = function () {
+
+            $.get("PaginaPrincipal/obtenerNombreCompleto", function (data) {
+
+             
+                voz("Hasta luego " + data);
+            })
+            
+        }
+
+    </script>
+   
+</body>
+</html>
